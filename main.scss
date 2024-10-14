@@ -1,0 +1,932 @@
+@import "./variable";
+@import "./mixins";
+@import "./fonts.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-image: url("image/backgroundImage.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  width: 100vw;
+
+  background-size: cover;
+  font-family: oswaldMedium;
+  @include breakpoint("xmd") {
+    overflow: auto;
+
+    height: 100vh;
+  }
+}
+
+.landingPage-container {
+  background: none;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  .landingPage {
+    height: 100%;
+    width: 100%;
+    @include flex(center, flex-start, column);
+
+    @include breakpoint("xmd") {
+      @include flex(center, flex-start, column);
+      background: none;
+      padding: 12px;
+      height: 100%;
+    }
+    &-top {
+      @include flex(center, space-between, row);
+      height: 100%;
+      width: 100%;
+      @include breakpoint("xmd") {
+        @include flex(flex-start, flex-start, column);
+        // height: unset;
+      }
+
+      &-left {
+        width: 60%;
+        @include flex(flex-start, flex-start, column);
+        padding: 3vh 4vh;
+        padding-left: 5vh;
+        row-gap: 15px;
+        height: 100%;
+
+        @include breakpoint("xxl") {
+          @include flex(flex-start, flex-start, column);
+          height: 95vh;
+          row-gap: 40px;
+        }
+
+        @include breakpoint("xmd") {
+          width: 100%;
+          height: 100%;
+          padding: 6px;
+          @include flex(flex-start, flex-start, column);
+          row-gap: 20px;
+        }
+
+        &-floralImage {
+          width: 50%;
+          height: 50px;
+          align-self: flex-start;
+
+          @include breakpoint("xmd") {
+            width: 75%;
+          }
+          img {
+            height: 100%;
+            width: 100%;
+            // object-fit: cover;
+            display: block;
+          }
+        }
+
+        &-important {
+          @include flex(flex-start, space-between, column);
+          @include breakpoint("xxl") {
+            row-gap: 30px;
+          }
+
+          &-title {
+            p {
+              font-family: oswaldBold;
+              font-size: map-get($fontSizes, large);
+              @include breakpoint("xxl") {
+                font-size: map-get($fontSizes, largeLarge);
+              }
+              @include breakpoint("xmd") {
+                font-size: map-get($fontSizes, mobileLarge);
+              }
+            }
+
+            color: map-get($text, primary);
+          }
+
+          &-paragraph {
+            p {
+              width: 65%;
+
+              text-transform: uppercase;
+
+              color: white;
+
+              span {
+                color: map-get($text, primary);
+              }
+
+              font-size: map-get($fontSizes, medium);
+              @include breakpoint("xmd") {
+                font-size: map-get($fontSizes, mobileMedium);
+                width: 80%;
+              }
+
+              @include breakpoint("xxl") {
+                font-size: map-get($fontSizes, largeMedium);
+              }
+            }
+          }
+        }
+
+        &-modal {
+          display: none;
+
+          justify-self: flex-start;
+          width: 70%;
+          flex-direction: column;
+          align-self: flex-start;
+          row-gap: 20px;
+
+          @include breakpoint("xmd") {
+            width: 100%;
+
+            // background: rgba(250, 234, 234, 0.1);
+          }
+
+          &-content {
+            display: flex;
+
+            width: 100%;
+            align-items: flex-start;
+            flex-direction: column;
+            row-gap: 20px;
+            color: #272626;
+
+            color: white;
+            @include breakpoint("xmd") {
+              color: #c1acac;
+
+              line-height: 1.5;
+            }
+
+            &-text {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 16px;
+              flex-direction: column;
+            }
+
+            &-loader {
+              width: 100%;
+              height: 24px;
+              border-radius: 8px;
+              background-color: white;
+              position: relative;
+              border-radius: 12px;
+              // overflow: hidden;
+
+              box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+
+              &-text {
+                font-weight: 700;
+                color: map-get($text, primary);
+                font-size: map-get($fontSizes, medium);
+                @include breakpoint("xmd") {
+                  font-size: map-get($fontSizes, mobileMedium);
+                }
+
+                @include breakpoint("xxl") {
+                  font-size: map-get($fontSizes, largeMedium);
+                }
+              }
+
+              &-animating {
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: map-get($base, success);
+
+                // background-color: map-get($base, primary);
+
+                background-color: map-get($text, primary);
+                height: 24px;
+                animation-name: loadingAnimation;
+                animation-duration: 5s;
+                animation-timing-function: ease-in-out;
+                animation-delay: 0.5s;
+                width: 0%;
+                border-radius: 12px;
+              }
+            }
+          }
+
+          &-footer {
+            margin-top: 20px;
+            color: white;
+            font-family: "Open Sans";
+
+            font-family: "Open Sans";
+            font-size: map-get($fontSizes, normal);
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+            }
+          }
+
+          @keyframes loadingAnimation {
+            0% {
+              width: 0%;
+            }
+            10% {
+              width: 15%;
+            }
+            20% {
+              width: 15%;
+            }
+
+            35% {
+              width: 35%;
+            }
+
+            45% {
+              width: 35%;
+            }
+
+            50% {
+              width: 55%;
+            }
+
+            60% {
+              width: 55%;
+            }
+
+            70% {
+              width: 75%;
+            }
+
+            80% {
+              width: 75%;
+            }
+
+            95% {
+              width: 90%;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+        }
+
+        // for final congratulation page\
+        &-finalPage {
+          display: none;
+          align-items: flex-start;
+          flex-direction: column;
+          row-gap: 8px;
+          height: 80%;
+          justify-content: space-between;
+
+          @include breakpoint("xmd") {
+            row-gap: 5px;
+            justify-content: flex-start;
+            height: 80%;
+            justify-content: space-between;
+          }
+
+          @include breakpoint("xxl") {
+            justify-content: space-between;
+            height: 90%;
+            row-gap: 20px;
+          }
+
+          &-congratulations {
+            p {
+              color: map-get($text, primary);
+              text-transform: uppercase;
+              font-family: oswaldBold;
+              font-size: 34px;
+
+              @include breakpoint("xxl") {
+                font-size: 36px;
+              }
+              @include breakpoint("xmd") {
+                font-size: 26px;
+              }
+            }
+          }
+
+          &-elligible {
+            div {
+              width: 100%;
+              text-transform: uppercase;
+
+              // font-weight: 700;
+              font-size: 20px;
+              color: white;
+
+              span {
+                color: map-get($text, primary);
+              }
+
+              @include breakpoint("xmd") {
+                font-size: 18px;
+              }
+            }
+
+            p {
+              font-size: 20px;
+              font-weight: 800;
+              color: white;
+              @include breakpoint("xmd") {
+                font-size: 16px;
+                color: white;
+              }
+            }
+          }
+
+          &-basedOn {
+            font-size: 16px;
+            color: white;
+            font-family: "Open Sans";
+            font-size: map-get($fontSizes, normal);
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+              font-size: 20px;
+            }
+          }
+
+          &-approved {
+            font-weight: 600;
+
+            font-size: 18px;
+            color: #2b8a3e;
+
+            @include breakpoint("xxl") {
+              font-size: 22px;
+            }
+
+            @include breakpoint("xmd") {
+              font-size: 16px;
+            }
+          }
+
+          &-floralImage {
+            width: 50%;
+            // height: 30px;
+            align-self: flex-start;
+            margin: 3px 0;
+            img {
+              height: 100%;
+              width: 100%;
+              // object-fit: cover;
+              display: block;
+            }
+
+            @include breakpoint("xmd") {
+              width: 70%;
+            }
+          }
+
+          &-rules {
+            width: 70%;
+            @include flex(flex-start, flex-start, column);
+            row-gap: 4px;
+            @include breakpoint("xmd") {
+              color: white;
+              row-gap: 10px;
+              width: 100%;
+            }
+
+            @include breakpoint("xxl") {
+              row-gap: 16px;
+            }
+
+            &-title {
+              font-size: 20px;
+              color: map-get($text, primary);
+
+              text-transform: uppercase;
+              @include breakpoint("xmd") {
+                font-size: 18px;
+              }
+              @include breakpoint("xxl") {
+                font-size: 24px;
+              }
+            }
+
+            &-mustAggree {
+              color: white;
+              font-family: "Open Sans";
+              font-size: 14px;
+              @include breakpoint("xmd") {
+                font-size: map-get($fontSizes, mobileNormal);
+              }
+              @include breakpoint("xxl") {
+                font-size: map-get($fontSizes, largeNormal);
+              }
+            }
+
+            &-list {
+              @include flex(flex-start, flex-start, column);
+              // row-gap: 16px;
+
+              @include breakpoint("xmd") {
+                row-gap: 6px;
+              }
+              @include breakpoint("xxl") {
+                row-gap: 14px;
+              }
+              &-content {
+                font-size: 17px;
+                @include flex(flex-start, center, row);
+                column-gap: 10px;
+
+                color: white;
+
+                &-icon {
+                  font-size: 24px;
+                  font-family: oswaldBold;
+                }
+
+                @include breakpoint("xmd") {
+                  font-size: 17px;
+                }
+
+                @include breakpoint("xxl") {
+                  font-size: 22px;
+                }
+
+                @media only screen and (max-width: 375px) {
+                  font-size: 16px;
+                }
+              }
+            }
+          }
+
+          &-failure {
+            color: white;
+            width: 70%;
+            font-family: "Open Sans";
+            font-size: 14px;
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+              width: 90%;
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+              font-size: 20px;
+            }
+
+            @media only screen and (max-width: 375px) {
+              font-size: 12px;
+            }
+          }
+
+          &-aggreeButton {
+            position: absolute;
+            bottom: 15px;
+
+            @include breakpoint("xxl") {
+              bottom: 50px;
+            }
+
+            @include breakpoint("xmd") {
+              bottom: 80px;
+            }
+
+            @media only screen and (max-width: 375px) {
+              bottom: 20px;
+            }
+
+            div {
+              @include flex(center, center, row);
+              cursor: pointer;
+              text-align: center;
+              letter-spacing: 3px;
+              flex: 1;
+              padding: 4px 26px;
+
+              @include breakpoint("xxl") {
+                padding: 16px 26px !important;
+              }
+
+              box-shadow: inset 0px 0px 14px #000000;
+              background-color: map-get($base, success);
+              background: rgb(251, 245, 186);
+              background: linear-gradient(
+                145deg,
+                rgba(251, 245, 186, 1) 50%,
+                rgba(243, 222, 33, 1) 50%
+              );
+              color: black;
+              font-size: 20px;
+              border: 3px solid map-get($border, primary);
+              font-family: oswaldBold;
+              border-radius: map-get($radius, container);
+
+              a {
+                color: black;
+                text-decoration: none;
+                @include flex(center, center, row);
+
+                p {
+                  color: black;
+                  text-decoration: none;
+                }
+
+                div img {
+                }
+              }
+            }
+          }
+        }
+
+        &-description {
+          color: map-get($text, base);
+          font-size: 16px;
+          width: 85%;
+
+          @include breakpoint("xmd") {
+            width: 100%;
+          }
+
+          p {
+            color: white;
+
+            font-family: "Open Sans";
+            font-size: map-get($fontSizes, normal);
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+            }
+          }
+        }
+
+        &-olderThan {
+          @include flex(flex-start, space-between, column);
+          row-gap: 4px;
+
+          position: absolute;
+          bottom: 15px;
+          width: 45%;
+
+          @include breakpoint("xxl") {
+            row-gap: 30px;
+            bottom: 50px;
+          }
+
+          @include breakpoint("xmd") {
+            width: 90%;
+            bottom: 80px;
+            row-gap: 10px;
+          }
+
+          @media only screen and (max-width: 375px) {
+            bottom: 30px;
+          }
+
+          &-descriptionFirst {
+            color: white;
+            width: 80%;
+
+            font-family: "Open Sans";
+
+            font-size: map-get($fontSizes, normal);
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+              width: 100%;
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+            }
+          }
+
+          &-title {
+            color: map-get($text, primary);
+            text-transform: uppercase;
+            width: 80%;
+
+            font-size: map-get($fontSizes, medium);
+            font-family: "oswaldMedium";
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileMedium);
+              width: 100%;
+            }
+
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeMedium);
+            }
+
+            @media only screen and (max-width: 375px) {
+              font-size: 19px;
+            }
+          }
+
+          &-checkBoxList {
+            width: 100%;
+            display: flex;
+            margin-top: 8px;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
+            row-gap: 10px;
+
+            width: 80%;
+            @include breakpoint("xxl") {
+              row-gap: 16px;
+            }
+
+            @include breakpoint("xmd") {
+              width: 100%;
+              row-gap: 10px;
+            }
+
+            p {
+              color: $white;
+              font-size: 16px;
+              font-weight: 400;
+              margin-top: 10px;
+
+              @include breakpoint("xmd") {
+                font-size: 20px;
+              }
+              @include breakpoint("xxl") {
+                font-size: 24px;
+              }
+            }
+
+            .checkbox-container {
+              // border: 3px solid green;
+            }
+
+            div {
+              width: 45%;
+              @include flex(center, flex-start, row);
+              column-gap: 20px;
+              cursor: pointer;
+              // border: 2px solid red;
+
+              @include breakpoint("xxl") {
+                @include flex(center, flex-start, row);
+              }
+
+              @include breakpoint("xmd") {
+                width: 45% !important;
+              }
+
+              input {
+                margin-top: 3px;
+                display: none;
+              }
+              .customCheckboxQuestion {
+                height: 17px;
+                width: 17px;
+                background-color: white;
+                @include flex(center, center, row);
+              }
+
+              .customCheckboxQuestion img {
+                scale: 0;
+                opacity: 0;
+                height: 12px;
+                width: 14px;
+              }
+
+              .customCheckboxQuestion_input:checked
+                + .customCheckboxQuestion
+                img {
+                opacity: 1;
+                scale: 1;
+                color: map-get($text, secondary);
+                color: black;
+              }
+
+              .customCheckboxQuestion_input:checked + .customCheckboxQuestion {
+                background-color: map-get($text, primary);
+              }
+
+              label {
+                font-size: 16px;
+                color: white;
+                position: relative;
+                font-weight: 500;
+                top: 0;
+
+                cursor: pointer;
+                @include breakpoint("xmd") {
+                  color: white;
+                }
+                @include breakpoint("xxl") {
+                  font-size: 22px;
+                }
+              }
+            }
+          }
+          &-choose {
+            display: none;
+            font-family: "Open Sans";
+            width: 70%;
+            font-size: map-get($fontSizes, normal);
+            color: white;
+            @include breakpoint("xmd") {
+              font-size: map-get($fontSizes, mobileNormal);
+              width: 100%;
+            }
+            @include breakpoint("xxl") {
+              font-size: map-get($fontSizes, largeNormal);
+            }
+          }
+
+          &-buttons {
+            align-self: space-between;
+            @include flex(center, flex-start, row);
+            column-gap: 25px;
+            color: white;
+            width: 100%;
+            width: 70%;
+            margin-top: 12px;
+
+            // border: 2px solid red;
+
+            @include breakpoint("xmd") {
+              width: 100%;
+              column-gap: 10px;
+              margin-top: 10px;
+            }
+
+            &-left {
+              @include flex(center, center, row);
+              cursor: pointer;
+              text-align: center;
+              letter-spacing: 3px;
+              flex: 1;
+              padding: 4px 26px;
+
+              @include breakpoint("xxl") {
+                padding: 16px 26px !important;
+              }
+
+              box-shadow: inset 0px 0px 14px #000000;
+              background-color: map-get($base, success);
+              background: rgb(251, 245, 186);
+              background: linear-gradient(
+                145deg,
+                rgba(251, 245, 186, 1) 50%,
+                rgba(243, 222, 33, 1) 50%
+              );
+              color: black;
+              font-size: 20px;
+              border: 3px solid map-get($border, primary);
+              font-family: oswaldBold;
+
+              .arrowIconContinue {
+                @include flex(center, center, row);
+                height: 26px;
+                width: 26px;
+                margin-left: 14px;
+                padding: 6px;
+                border-radius: map-get($radius, circle);
+                background: #101010;
+                img {
+                  height: 80%;
+                  width: 70%;
+                  object-fit: cover;
+                }
+              }
+
+              border-radius: map-get($radius, container);
+              .arrowIcon {
+                @include flex(center, center, row);
+              }
+            }
+
+            &-right {
+              padding: 10px 16px;
+              @include flex(center, center, row);
+              cursor: pointer;
+              letter-spacing: 2px;
+              text-align: center;
+              flex: 1;
+              padding: 4px 16px;
+              font-family: oswaldBold;
+
+              @include breakpoint("xxl") {
+                padding: 16px 26px;
+              }
+              box-shadow: inset 0px 0px 14px #000000;
+
+              background-color: map-get($base, success);
+              background: rgb(251, 245, 186);
+              background: linear-gradient(
+                145deg,
+                rgba(251, 245, 186, 1) 50%,
+                rgba(243, 222, 33, 1) 50%
+              );
+              color: black;
+              font-size: 20px;
+              border: 3px solid map-get($border, primary);
+
+              border-radius: map-get($radius, container);
+              .arrowIcon {
+                @include flex(center, center, row);
+              }
+            }
+          }
+        }
+      }
+
+      // for right image slider section
+      &-right {
+        // flex: 0.6;
+
+        width: 60%;
+
+        @include breakpoint("xmd") {
+          display: none;
+          // height: 100%;
+          // top: 0;
+          // left: 0;
+        }
+
+        height: 100%;
+
+        &-slide {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+          height: 100%;
+
+          border-radius: 30px;
+          @include breakpoint("xmd") {
+            border-radius: 0;
+          }
+
+          &-img {
+            width: 100%;
+            object-fit: contain;
+            width: 100%;
+
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            display: block;
+            transition: all 0.5s ease-in-out;
+            // overflow: hidden;
+
+            @include breakpoint("xmd") {
+              border-radius: 0;
+            }
+          }
+
+          // &::before {
+          //   display: none;
+          //   top: 0;
+          //   left: 0;
+          //   content: "";
+
+          //   height: 100%;
+          //   width: 100%;
+          //   // background: rgb(65 25 100 / 56%);
+          //   // background: #1b021c;
+
+          //   @include breakpoint("xmd") {
+          //     display: block;
+          //   }
+          // }
+        }
+      }
+    }
+
+    &-bottom {
+      width: 100%;
+      text-align: center;
+      p {
+        font-size: 20px;
+        font-weight: 500;
+
+        @include breakpoint("xmd") {
+          font-size: 16px;
+          position: relative;
+          z-index: 100;
+          color: white;
+        }
+      }
+
+      @include breakpoint("xmd") {
+        width: 100%;
+      }
+    }
+  }
+}
