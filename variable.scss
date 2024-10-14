@@ -14,9 +14,8 @@ $base: (
 );
 
 $text: (
-  "primary": #f3de21,
+  "primary": #f18f01,
   "secondary": #f7c5c5,
-
   "base": #514d6f,
   "disabled": #0fe4a0,
   "inverted": #ffffff,
@@ -33,7 +32,7 @@ $surface: (
 );
 
 $border: (
-  "primary": #fbf5ba,
+  "primary": white,
 
   "secondary": #4f4f4f,
   "light": #e6e6e7,
@@ -128,18 +127,18 @@ $fontSizes: (
   9: 48px,
   10: 64px,
   11: 72px,
-  "normal": 18px,
-  "medium": 22px,
-  "large": 40px,
-  "extraSmall": 16px,
-  "mobileNormal": 16px,
-  "mobileMedium": 22px,
-  "mobileLarge": 30px,
-  "mobileExtraSmall": 14px,
-  "largeNormal": 22px,
-  "largeMedium": 34px,
-  "largeLarge": 56px,
-  "largextaSmall": 20px,
+  "smalls": 16px,
+  "mediums": 18px,
+  "larges": 20px,
+  "extraLarge": 22px,
+  "mobileSmall": 18px,
+  "mobileMedium": 20px,
+  "mobileLarge": 22px,
+  "mobileExtraLarge": 22px,
+  "largeSmall": 44px,
+  "largeMedium": 62px,
+  "largeLarge": 58px,
+  "largeExtraLarge": 80px,
 );
 // Font sizes
 // $large_heading: 32px;
@@ -205,12 +204,24 @@ $button: (
   "danger": #ff0a54,
 );
 
+// $breakpoints: (
+//   "xs": "max-width:575.98px",
+//   "xmd": "max-width:900px",
+//   "sm": "(min-width:576px) and (max-width:767.98px)",
+//   "md": "(min-width:768px) and (max-width:991.98px)",
+//   "lg": "(min-width:992px) and (max-width:1199.98px)",
+//   "xl": "(min-width:1200px) and (max-width:1399.98pxpx)",
+//   "xxl": "min-width:1400px",
+// );
+
 $breakpoints: (
+  "xxxs": "max-width:324",
+  "xxs": "max-width:380px",
+  "xxmd": "max-width:560px",
   "xs": "max-width:575.98px",
-  "xmd": "max-width:900px",
-  "sm": "(min-width:576px) and (max-width:767.98px)",
-  "md": "(min-width:768px) and (max-width:991.98px)",
+  "sm": "max-width:768px",
+  "xmd": "max-width:991.98px",
   "lg": "(min-width:992px) and (max-width:1199.98px)",
-  "xl": "(min-width:1200px) and (max-width:1399.98pxpx)",
+  "xls": "(min-width:1200px) and (max-width:1399.98px)",
   "xxl": "min-width:1400px",
 );
