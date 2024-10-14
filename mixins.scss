@@ -1,0 +1,48 @@
+@import "./variable.scss";
+
+@mixin breakpoint($user-value) {
+  $media-map: map-get($breakpoints, $user-value);
+  @if $media-map {
+    @media (#{$media-map}) {
+      @content;
+    }
+  } @else {
+    @error "oops breakpoint value couldnt find";
+  }
+}
+
+// RESPONSIVE MEDIA QUERY
+
+// BREAK POINTS FOR THE DEVICES
+$sm: 576px; // FOR SMALL DEVICES == sm
+$md: 768px; // FOR MEDIUM DEVICES == md
+$lg: 992px; // FOR LARGE DEVICES == lg
+$xlg: 1200px; // FOR EXTRA LARGE DEVICES == xlg
+
+@mixin horizontalCenter {
+  margin: 0 auto;
+}
+
+@mixin flex-stretch-start {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+@mixin flex($align-value: center, $justify-value: center, $direction: row) {
+  display: flex;
+  align-items: $align-value;
+  justify-content: $justify-value;
+  flex-direction: $direction;
+}
+
+@mixin backgroundSetUp() {
+  background-repeat: no-repeat;
+  // background-attachment: fixed;
+}
+
+@mixin dynamicFlex($align-value, $justify-value, $direction) {
+  align-items: $align-value;
+  justify-content: $justify-value;
+  flex-direction: $direction;
+}

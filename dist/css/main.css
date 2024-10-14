@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: YourFontName;
+  src: url(../../Thunder-BoldHC.ttf);
+}
+body {
+  font-family: "Aclonica";
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.landingPage-container {
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.landingPage-container .landingPage-right {
+  position: absolute;
+  left: 75%;
+  transform: translateX(-50%);
+  bottom: -1px;
+  z-index: 2;
+  pointer-events: none;
+}
+.landingPage-container .landingPage-right img {
+  height: 100vh;
+}
+.landingPage-container .landingPage-middle {
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  height: 80svh;
+  width: 100%;
+  padding: 2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.landingPage-container .landingPage-middle .landingPage-middle-content {
+  max-width: 600vw;
+  margin-bottom: 1rem;
+}
+.landingPage-container .landingPage-middle .landingPage-middle-content p {
+  font-size: 7vw;
+  font-weight: 500;
+  max-width: 40vw;
+  font-family: YourFontName, sans-serif;
+}
+.landingPage-container .landingPage-middle .question-section {
+  max-width: 40vw;
+}
+.landingPage-container .landingPage-middle .question-section .subtitle {
+  display: none;
+}
+.landingPage-container .landingPage-middle .question-section p {
+  line-height: 160%;
+  margin-top: 1rem;
+  font-size: 1.5vw;
+}
+.landingPage-container .landingPage-middle .question-section #continueButton p {
+  margin-top: 0;
+}
+.landingPage-container .landingPage-middle-checkBoxList {
+  margin: 1rem;
+  margin-left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 20px;
+  font-family: Acme;
+  font-size: 1.3vw;
+  font-family: "Aclonica", sans-serif;
+  text-align: center;
+}
+@media (max-width:991.98px) {
+  .landingPage-container .landingPage-middle-checkBoxList {
+    width: 100%;
+    row-gap: 0.5rem;
+  }
+}
+@media (width: 320px) and (max-height: 481px) {
+  .landingPage-container .landingPage-middle-checkBoxList {
+    row-gap: 0.3rem;
+  }
+}
+@media screen and (max-width: 381px) {
+  .landingPage-container .landingPage-middle-checkBoxList {
+    row-gap: 0.6rem;
+  }
+}
+.landingPage-container .landingPage-middle-checkBoxList p {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+@media (max-width:991.98px) {
+  .landingPage-container .landingPage-middle-checkBoxList p {
+    font-size: 20px;
+  }
+}
+@media (min-width:1400px) {
+  .landingPage-container .landingPage-middle-checkBoxList p {
+    font-size: 24px;
+  }
+}
+.landingPage-container .landingPage-middle-checkBoxList div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  column-gap: 14px;
+  cursor: pointer;
+}
+@media (max-width:991.98px) {
+  .landingPage-container .landingPage-middle-checkBoxList div {
+    column-gap: 10px;
+  }
+}
+.landingPage-container .landingPage-middle-checkBoxList div input {
+  margin-top: 3px;
+  display: none;
+}
+.landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  background-color: #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+@media (max-width:991.98px) {
+  .landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
+}
+.landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion img {
+  scale: 0;
+  opacity: 0;
+  height: 15px;
+  width: 15px;
+}
+@media (max-width:991.98px) {
+  .landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion img {
+    height: 13px;
+    width: 13px;
+  }
+}
+.landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion_input:checked + .customCheckboxQuestion img {
+  scale: 0.8;
+  opacity: 1;
+  color: #f7c5c5;
+}
+.landingPage-container .landingPage-middle-checkBoxList div label {
+  position: relative;
+  top: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+@media screen and (max-width: 281px) {
+  .landingPage-container .landingPage-middle-checkBoxList div label {
+    font-size: 12px;
+  }
+}
+.landingPage-container .landingPage-middle-buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  font-size: 1.5vw;
+  font-weight: 400;
+  color: #fff;
+}
+.landingPage-container .landingPage-middle-buttons-left {
+  cursor: pointer;
+  padding: 0.8rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #fff;
+  border-radius: 70px;
+  background: #30b286;
+}
+@media screen and (max-width: 767px) {
+  .landingPage-container .landingPage-middle-buttons-left {
+    padding: 0.7rem 2.8rem;
+  }
+}
+@media screen and (max-width: 381px) {
+  .landingPage-container .landingPage-middle-buttons-left {
+    padding: 0.4rem 2.5rem;
+  }
+}
+.landingPage-container .landingPage-middle-buttons-right {
+  cursor: pointer;
+  background-position: center;
+  cursor: pointer;
+  padding: 0.8rem 3.5rem;
+  display: none;
+  align-items: center;
+  border-radius: 70px;
+  background: #30b286;
+}
+@media screen and (max-width: 767px) {
+  .landingPage-container .landingPage-middle-buttons-right {
+    padding: 0.7rem 2.8rem;
+  }
+}
+@media screen and (max-width: 381px) {
+  .landingPage-container .landingPage-middle-buttons-right {
+    padding: 0.4rem 2.5rem;
+  }
+}
+.landingPage-container .landingPage-middle-buttons-continue {
+  cursor: pointer;
+  padding: 0.8rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #fff;
+  display: none;
+  border-radius: 70px;
+  background: #30b286;
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  .landingPage-container .landingPage-middle-buttons-continue {
+    padding: 0.7rem 2.8rem;
+  }
+}
+@media screen and (max-width: 381px) {
+  .landingPage-container .landingPage-middle-buttons-continue {
+    padding: 0.4rem 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (max-height: 500px) {
+  .landingPage-container .landingPage-middle {
+    top: 2rem;
+    height: 90svh;
+    padding: 1rem;
+  }
+  .landingPage-container .landingPage-middle-chckBoxList div .customCheckboxQuestion {
+    height: 1rem;
+    width: 1rem;
+  }
+  .landingPage-container .landingPage-middle-chckBoxList div label {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 800px) and (max-height: 414px) {
+  .landingPage-container .landingPage-middle {
+    top: 1rem;
+  }
+  .landingPage-container .landingPage-middle-chckBoxList div .customCheckboxQuestion {
+    height: 1rem;
+    width: 1rem;
+  }
+  .landingPage-container .landingPage-middle-chckBoxList div label {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .landingPage-container .landingPage-right {
+    left: 50%;
+  }
+  .landingPage-container .landingPage-right img {
+    height: 40vh;
+  }
+  .landingPage-container .landingPage-middle {
+    top: 1rem;
+    max-width: 90vw;
+    height: 60svh;
+    padding: 2rem 1rem;
+  }
+  .landingPage-container .landingPage-middle .landingPage-middle-content {
+    max-width: 600px;
+    margin-bottom: 1rem;
+  }
+  .landingPage-container .landingPage-middle .landingPage-middle-content p {
+    font-size: 19vw;
+    font-weight: 500;
+    max-width: 600px;
+  }
+  .landingPage-container .landingPage-middle .question-section {
+    max-width: 600px;
+  }
+  .landingPage-container .landingPage-middle .question-section p {
+    line-height: 160%;
+    margin-top: 1rem;
+    font-size: 4vw;
+  }
+  .landingPage-container .landingPage-middle .question-section #continueButton p {
+    margin-top: 0;
+  }
+  .landingPage-container .landingPage-middle-buttons {
+    font-size: 3.6vw;
+  }
+  .landingPage-container .landingPage-middle-checkBoxList {
+    font-size: 0.9rem;
+  }
+  .landingPage-container .landingPage-middle-checkBoxList div {
+    gap: 0.3rem;
+  }
+  .landingPage-container .landingPage-middle-checkBoxList div .customCheckboxQuestion {
+    height: 1rem;
+    width: 1rem;
+  }
+  @supports (-webkit-touch-callout: none) {
+    .landingPage-container .landingPage-right {
+      left: 50%;
+    }
+    .landingPage-container .landingPage-right img {
+      height: 33vh;
+    }
+  }
+}/*# sourceMappingURL=main.css.map */
